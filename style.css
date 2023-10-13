@@ -20,8 +20,8 @@ html {
   font-size: 16px;
 }
 
-body{
-  font-family: 'Roboto Slab';
+body {
+  font-family: "Roboto Slab";
   background-color: var(--bgcolour);
 }
 
@@ -39,29 +39,41 @@ header {
   z-index: 999;
 }
 
+ul::-webkit-scrollbar {
+  display: none;
+  -ms-overflow-style: none;
+  scrollbar-width: 0;
+}
+
 header img {
   max-width: 74px;
   height: auto;
   margin: 0;
 }
 
-header ul, nav ul {
+header ul,
+nav ul {
   margin: 0;
   display: flex;
   align-items: center;
 }
 
 nav > ul {
+  padding-left: 0;
   overflow: scroll;
+  overflow-x: hidden;
+  overflow-y: hidden;
 }
 
-header li, nav li {
+header li,
+nav li {
   font-size: 1.2rem;
   margin-left: 26px;
   display: inline;
 }
 
-header li > a, header span {
+header li > a,
+header span {
   color: var(--bgcolour);
   display: inline;
 }
@@ -73,7 +85,7 @@ header li span {
   color: var(--bgcolour);
 }
 
-.navbar-toggler{
+.navbar-toggler {
   display: none;
 }
 
@@ -86,12 +98,19 @@ header > select > option {
   font-weight: bold !important;
 }
 
-.offcanvas{
+.offcanvas {
   background-color: var(--major);
   color: var(--bgcolour);
 }
 
-section h1,h3 {
+section {
+  margin-bottom: var(--extended-margin);
+  padding: 0 15px 0 15px;
+}
+
+section h1,
+h3,
+h4 {
   text-align: center;
   font-weight: bold;
   background-color: var(--bgcolour);
@@ -99,13 +118,8 @@ section h1,h3 {
 }
 
 section > h3 {
-  margin-top: var(--extended-margin); 
+  margin-top: var(--extended-margin);
   margin-bottom: var(--semantic-margin);
-}
-
-section {
-  margin-bottom: var(--extended-margin);
-  padding: 0 15px 0 15px;
 }
 
 #description p {
@@ -120,13 +134,14 @@ section {
 }
 
 .dishes-list {
+  position: sticky;
+  top: 0;
   width: 100%;
   padding: var(--def-padd);
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: center;
-  overflow: scroll;
   background-color: var(--accent);
 }
 
@@ -136,7 +151,7 @@ section {
   text-decoration: none;
 }
 
-.dishes-list ul:first-child {
+.dishes-list li:first-child {
   margin: 0;
 }
 
@@ -159,22 +174,21 @@ section {
   }
 }
 
-@media screen and (max-width:991px) {
-  .navbar-big{
+@media screen and (max-width: 991px) {
+  .navbar-big {
     display: none;
   }
 
-  .material-symbols-outlined{
+  .material-symbols-outlined {
     font-size: 48px;
   }
 
-  .navbar-toggler{
+  .navbar-toggler {
     display: block;
   }
 }
 
-
-@media screen and (max-width:766px) {
+@media screen and (max-width: 788px) {
   #description p {
     padding: 0 10% 0 10%;
   }
@@ -183,12 +197,16 @@ section {
     padding: 0 10% 0 10%;
   }
 
-  .carousel-indicators{
+  .carousel-indicators {
     margin: 0 !important;
   }
 
-  .dishes-list li:first-child{
+  .dishes-list li:first-child {
     margin-left: 0;
+  }
+
+  nav > ul {
+    overflow-x: visible;
   }
 }
 
