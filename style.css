@@ -28,6 +28,7 @@ body {
 header {
   top: 0;
   position: sticky;
+  z-index: 10;
   margin-bottom: var(--semantic-margin);
   display: flex;
   flex-direction: row;
@@ -36,7 +37,7 @@ header {
   background-color: var(--major);
   padding: 1rem;
   width: 100%;
-  z-index: 999;
+  
 }
 
 ul::-webkit-scrollbar {
@@ -135,7 +136,7 @@ section > h3 {
 
 .dishes-list {
   position: sticky;
-  top: 0;
+  top: 100px;
   width: 100%;
   padding: var(--def-padd);
   display: flex;
@@ -174,13 +175,19 @@ section > h3 {
   }
 }
 
+@media screen and (max-width:1100px) {
+  nav > ul {
+    overflow-x: visible;
+  }
+}
+
 @media screen and (max-width: 991px) {
   .navbar-big {
     display: none;
   }
 
   .material-symbols-outlined {
-    font-size: 48px;
+    font-size: 3rem;
   }
 
   .navbar-toggler {
@@ -205,9 +212,6 @@ section > h3 {
     margin-left: 0;
   }
 
-  nav > ul {
-    overflow-x: visible;
-  }
 }
 
 @media screen and (max-width: 388px) {
