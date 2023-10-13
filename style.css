@@ -4,6 +4,7 @@
   --accent2: #f89784;
   --extra: #bb0022;
   --bgcolour: #fbf3ee;
+  --extended-margin: 60px;
   --semantic-margin: 30px;
   --def-margin: 15px;
   --def-padd: 15px;
@@ -12,6 +13,7 @@
 * {
   padding: 0;
   margin: 0;
+  list-style-type: none;
 }
 
 html {
@@ -34,9 +36,10 @@ header {
   background-color: var(--major);
   padding: 1rem;
   width: 100%;
+  z-index: 999;
 }
 
-img {
+header img {
   max-width: 74px;
   height: auto;
   margin: 0;
@@ -46,7 +49,6 @@ header ul {
   margin: 0;
   display: flex;
   align-items: center;
-  list-style-type: none;
 }
 
 header li {
@@ -88,10 +90,49 @@ main {
   color: var(--bgcolour);
 }
 
-h1 {
+section h1,h3 {
   text-align: center;
   font-weight: bold;
   background-color: var(--bgcolour);
+  margin-bottom: var(--extended-margin);
+}
+
+section {
+  margin-bottom: var(--extended-margin);
+}
+
+#description p {
+  padding: 0 30% 0 30%;
+  margin-bottom: var(--semantic-margin);
+  text-align: center;
+  font-weight: 300;
+}
+
+.carousel-container {
+  padding: 0 20% 0 20%;
+}
+
+#dishes nav {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: scroll;
+  background-color: var(--accent);
+}
+
+.dishes {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: scroll;
+}
+
+
+@media screen and (max-width: 1200rem) {
+  #description p {
+    padding: 0 20% 0 20%;
+  }
 }
 
 @media screen and (max-width:991px) {
@@ -105,5 +146,26 @@ h1 {
 
   .navbar-toggler{
     display: block;
+  }
+}
+
+
+@media screen and (max-width:766px) {
+  #description p {
+    padding: 0 10% 0 10%;
+  }
+
+  .carousel-container {
+    padding: 0 10% 0 10%;
+  }
+
+  .carousel-indicators{
+    margin: 0 !important;
+  }
+}
+
+@media screen and (max-width: 388px) {
+  .carousel-container {
+    padding: 0;
   }
 }
