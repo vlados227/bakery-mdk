@@ -1,0 +1,109 @@
+:root {
+  --major: #113b4c;
+  --accent: #415667;
+  --accent2: #f89784;
+  --extra: #bb0022;
+  --bgcolour: #fbf3ee;
+  --semantic-margin: 30px;
+  --def-margin: 15px;
+  --def-padd: 15px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  font-size: 16px;
+}
+
+body{
+  font-family: 'Roboto Slab';
+  background-color: var(--bgcolour);
+}
+
+header {
+  top: 0;
+  position: sticky;
+  margin-bottom: var(--semantic-margin);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: var(--major);
+  padding: 1rem;
+  width: 100%;
+}
+
+img {
+  max-width: 74px;
+  height: auto;
+  margin: 0;
+}
+
+header ul {
+  margin: 0;
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+
+header li {
+  font-size: 1.2rem;
+  margin-left: 26px;
+  display: inline;
+}
+
+header li > a, header span {
+  color: var(--bgcolour);
+}
+
+header li span {
+  box-sizing: content-box;
+  scale: 1.5;
+  line-height: 2 !important;
+  color: var(--bgcolour);
+}
+
+.navbar-toggler{
+  display: none;
+}
+
+header > select {
+  background-color: var(--bgcolour) !important;
+  font-weight: bold !important;
+}
+
+header > select > option {
+  font-weight: bold !important;
+}
+
+main {
+  padding: 0 15px 0 15px;
+}
+
+.offcanvas{
+  background-color: var(--major);
+  color: var(--bgcolour);
+}
+
+h1 {
+  text-align: center;
+  font-weight: bold;
+  background-color: var(--bgcolour);
+}
+
+@media screen and (max-width:991px) {
+  .navbar-big{
+    display: none;
+  }
+
+  .material-symbols-outlined{
+    font-size: 48px;
+  }
+
+  .navbar-toggler{
+    display: block;
+  }
+}
