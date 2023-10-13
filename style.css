@@ -45,13 +45,17 @@ header img {
   margin: 0;
 }
 
-header ul {
+header ul, nav ul {
   margin: 0;
   display: flex;
   align-items: center;
 }
 
-header li {
+nav > ul {
+  overflow: scroll;
+}
+
+header li, nav li {
   font-size: 1.2rem;
   margin-left: 26px;
   display: inline;
@@ -59,6 +63,7 @@ header li {
 
 header li > a, header span {
   color: var(--bgcolour);
+  display: inline;
 }
 
 header li span {
@@ -81,10 +86,6 @@ header > select > option {
   font-weight: bold !important;
 }
 
-main {
-  padding: 0 15px 0 15px;
-}
-
 .offcanvas{
   background-color: var(--major);
   color: var(--bgcolour);
@@ -97,8 +98,14 @@ section h1,h3 {
   margin-bottom: var(--extended-margin);
 }
 
+section > h3 {
+  margin-top: var(--extended-margin); 
+  margin-bottom: var(--semantic-margin);
+}
+
 section {
   margin-bottom: var(--extended-margin);
+  padding: 0 15px 0 15px;
 }
 
 #description p {
@@ -112,13 +119,25 @@ section {
   padding: 0 20% 0 20%;
 }
 
-#dishes nav {
+.dishes-list {
   width: 100%;
+  padding: var(--def-padd);
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   overflow: scroll;
   background-color: var(--accent);
+}
+
+.dishes-list a {
+  color: var(--accent2);
+  white-space: nowrap;
+  text-decoration: none;
+}
+
+.dishes-list ul:first-child {
+  margin: 0;
 }
 
 .dishes {
@@ -128,6 +147,11 @@ section {
   overflow: scroll;
 }
 
+.dish-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
 @media screen and (max-width: 1200rem) {
   #description p {
@@ -161,6 +185,10 @@ section {
 
   .carousel-indicators{
     margin: 0 !important;
+  }
+
+  .dishes-list li:first-child{
+    margin-left: 0;
   }
 }
 
