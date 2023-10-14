@@ -6,6 +6,7 @@
   --bgcolour: #fbf3ee;
   --extended-margin: 60px;
   --semantic-margin: 30px;
+  --little-margin: 7.5px;
   --def-margin: 15px;
   --def-padd: 15px;
 }
@@ -115,7 +116,7 @@ h4 {
   text-align: center;
   font-weight: bold;
   background-color: var(--bgcolour);
-  margin-bottom: var(--extended-margin);
+  margin-bottom: var(--semantic-margin);
 }
 
 section > h3 {
@@ -157,16 +158,60 @@ section > h3 {
 }
 
 .dishes {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  overflow: scroll;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  grid-template-rows: none;
+  /* overflow: scroll; */
+  gap: var(--def-margin);
 }
 
 .dish-card {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  gap: var(--little-margin);
+  padding: var(--def-padd);
+  background-color: var(--accent2);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.dish-card > img {
+  width: 100%;
+  border-radius: 10px;
+  margin-bottom: var(--def-margin);
+}
+
+.dish-card > h4 {
+  border-radius: 12px;
+  background-color: var(--accent2);
+  margin-bottom: var(--def-margin);
+}
+
+.dish-card > p {
+  font-weight: 300;
+  text-align: justify;
+}
+
+.purchase {
+  width: 50%;
+  padding: var(--def-padd);
+  border-radius: 12px;
+  color: var(--bgcolour);
+  background-color: var(--extra);
+  text-align: center;
+  text-decoration: none;
+}
+
+.purchase::before {
+  content: 'заказать ';
+}
+
+.price {
+  font-family: 'Playfair Display';
+  font-size: 1.6rem;
+  float: right;
 }
 
 @media screen and (max-width: 1200rem) {
@@ -193,6 +238,10 @@ section > h3 {
   .navbar-toggler {
     display: block;
   }
+
+  .purchase {
+    width: 100%;
+  }
 }
 
 @media screen and (max-width: 788px) {
@@ -212,10 +261,17 @@ section > h3 {
     margin-left: 0;
   }
 
+  .dishes {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
 
-@media screen and (max-width: 388px) {
+@media screen and (max-width: 433px) {
   .carousel-container {
     padding: 0;
+  }
+
+  .dishes {
+    grid-template-columns: repeat(1, 1fr);
   }
 }
