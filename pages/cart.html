@@ -135,6 +135,15 @@
     </header>
     <main>
       <div class="dishes"></div>
+      <button id="dispose">dispose localStorage</button>
+      <script>
+          let disposer = document.querySelector("#dispose");
+          disposer.addEventListener('click', function () {
+            localStorage.clear();
+            location.reload();
+            console.log('disposed')
+          });
+      </script>
     </main>
     <footer>
       <script>
