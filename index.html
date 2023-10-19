@@ -73,7 +73,7 @@
         </li>
         <li class="nav-item">
           <a href="pages/cart.html">
-            <span class="material-symbols-outlined">shopping_bag</span>
+            <span class="material-symbols-outlined">shopping_cart</span>
           </a>
         </li>
       </ul>
@@ -125,7 +125,7 @@
             </li>
             <li class="nav-item">
               <a href="pages/cart.html" class="nav-link">
-                <span class="material-symbols-outlined">shopping_bag</span>
+                <span class="material-symbols-outlined">shopping_cart</span>
               </a>
             </li>
           </ul>
@@ -334,6 +334,7 @@
             // Update the UI to indicate the card has been added to the cart
             this.classList.remove('purchase');
             this.classList.add('purchased');
+            localStorage.setItem(this.classList);
           });
         });
       });
