@@ -214,6 +214,15 @@ section > h3 {
   float: right;
 }
 
+footer {
+  bottom: 0;
+  width: 100%;
+  padding: var(--def-padd);
+  background-color: var(--major);
+  color: var(--bgcolour);
+  text-align: center;
+}
+
 @media screen and (max-width: 1200rem) {
   #description p {
     padding: 0 20% 0 20%;
