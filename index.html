@@ -72,7 +72,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a href="#">
+          <a href="pages/cart.html">
             <span class="material-symbols-outlined">shopping_bag</span>
           </a>
         </li>
@@ -124,7 +124,7 @@
               </a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="pages/cart.html" class="nav-link">
                 <span class="material-symbols-outlined">shopping_bag</span>
               </a>
             </li>
@@ -273,47 +273,43 @@
         </div>
 
       </section>
-
-      <footer>
-        <script>
-          const select = document.querySelector('select');
-          const footer = document.querySelector('footer');
-          footer.innerText = 'Cамара 2023'
-          select.addEventListener('change', function() {
-            let selectedRest = this.options[this.selectedIndex].text;
-            if (selectedRest != 'выбрать ресторан') {
-              footer.innerText = selectedRest + '  Самара 2023';
-            } else {
-              footer.innerText = 'Самара 2023';
-            }
-          });
-        </script>
-      </footer>
     </main>
+    <footer>
+      <script>
+        const select = document.querySelector('select');
+        const footer = document.querySelector('footer');
+        footer.innerText = 'Cамара 2023'
+        select.addEventListener('change', function() {
+          let selectedRest = this.options[this.selectedIndex].text;
+          if (selectedRest != 'выбрать ресторан') {
+            footer.innerText = selectedRest + '  Самара 2023';
+          } else {
+            footer.innerText = 'Самара 2023';
+          }
+        });
+      </script>
+    </footer>
     <script>
       document.addEventListener('DOMContentLoaded', function () {
-        const purchaseElement = document.querySelectorAll('.purchased');
+        const purchaseElements = document.querySelectorAll('.purchase');
 
-        purchaseElement.addEventListener('click', function () {
-          purchaseElement.classList.remove('purchase');
-          purchaseElement.classList.add('purchased');
-          console.log('Clicked');
+        purchaseElements.forEach(function (purchaseElement) {
+          purchaseElement.addEventListener('click', function () {
+            const card = this.parentElement;
+            const clonedCard = card.cloneNode(true);
+
+            // Store the cloned card in localStorage
+            let savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
+            savedCards.push(clonedCard.outerHTML);
+            localStorage.setItem('savedCards', JSON.stringify(savedCards));
+
+            // Update the UI to indicate the card has been added to the cart
+            this.classList.remove('purchase');
+            this.classList.add('purchased');
+          });
         });
       });
     </script>
+
   </body>
 </html>
-<!-- 
-  document.addEventListener('DOMContentLoaded', function () {
-  const purchaseElements = document.querySelectorAll('.purchase');
-
-  purchaseElements.forEach(function (purchaseElement) {
-    purchaseElement.addEventListener('click', function () {
-      this.classList.remove('purchase');
-      this.classList.add('purchased');
-      console.log('Clicked');
-    });
-  });
-});
-
- -->
