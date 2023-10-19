@@ -46,7 +46,7 @@
     <header>
       <a href="../index.html"><img src="../source/fxemoji_bread.svg" alt="logo" id="logo"/></a>
       <form action="">
-        <select class="form-select w-50" aria-label="выберите ресторан">
+        <select class="form-select " aria-label="выберите ресторан">
           <option selected>выбрать ресторан</option>
           <option value="1">Московское шоссе 122</option>
           <option value="2">ул. Полевая 33</option>
@@ -56,7 +56,7 @@
 
       <ul class="navbar-big">
         <li class="nav-item">
-          <a href="#">меню</a>
+          <a href="../index.html#menu">меню</a>
         </li>
         <li class="nav-item">
           <a href="#">заказать столик</a>
@@ -96,7 +96,7 @@
         aria-labelledby="offcanvasNavLabel"
       >
         <div class="offcanvas-header">
-          <img src="../source/fxemoji_bread.svg" alt="" />
+          <a href="../index.html"><img src="../source/fxemoji_bread.svg" alt="" /></a>
           <h5 class="offcanvas-title" id="offcanvasNavLabel">Croissant</h5>
           <button
             type="button"
@@ -134,8 +134,11 @@
       </div>
     </header>
     <main>
-      <div class="dishes"></div>
-      <button id="dispose">dispose localStorage</button>
+      <section id="dishes">
+        <h1>Корзина</h1>
+        <div class="dishes"></div>
+      </section>     
+      <button id="dispose" style="margin-left: 50px;">dispose localStorage</button>
       <script>
           let disposer = document.querySelector("#dispose");
           disposer.addEventListener('click', function () {
@@ -149,16 +152,34 @@
       <script>
         const select = document.querySelector('select');
         const footer = document.querySelector('footer');
-        footer.innerText = 'Cамара 2023'
-        select.addEventListener('change', function() {
-          let selectedRest = this.options[this.selectedIndex].text;
-          if (selectedRest != 'выбрать ресторан') {
+
+        // Function to update footer text and save selectedRest to localStorage
+        function updateFooterText() {
+          let selectedRest = select.options[select.selectedIndex].text;
+          if (selectedRest !== 'выбрать ресторан') {
             footer.innerText = selectedRest + '  Самара 2023';
           } else {
             footer.innerText = 'Самара 2023';
           }
-        });
-      </script>
+          // Save selectedRest to localStorage
+          localStorage.setItem('selectedRest', selectedRest);
+        }
+        // Event listener for select change
+        select.addEventListener('change', updateFooterText);
+        // Check if there's a selectedRest value in localStorage
+        const storedRest = localStorage.getItem('selectedRest');
+        if (storedRest) {
+          // Set the selected option based on the stored value
+          for (let i = 0; i < select.options.length; i++) {
+            if (select.options[i].text === storedRest) {
+              select.selectedIndex = i;
+              console.log('current index = ' + i);
+              break;
+            }
+          }
+        }
+        updateFooterText();
+    </script>
     </footer>
     <script>
         document.addEventListener('DOMContentLoaded', function () {

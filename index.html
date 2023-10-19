@@ -45,7 +45,7 @@
     <header>
       <img src="source/fxemoji_bread.svg" alt="logo" id="logo" />
         <form action="">
-          <select class="form-select w-50" aria-label="выберите ресторан">
+          <select class="form-select " aria-label="выберите ресторан">
             <option selected>выбрать ресторан</option>
             <option value="1">Московское шоссе 122</option>
             <option value="2">ул. Полевая 33</option>
@@ -55,7 +55,7 @@
 
       <ul class="navbar-big">
         <li class="nav-item">
-          <a href="#">меню</a>
+          <a href="../index.html#menu">меню</a>
         </li>
         <li class="nav-item">
           <a href="#">заказать столик</a>
@@ -170,13 +170,23 @@
           </div>
         </div>
       </section>
-
-      <nav class="dishes-list">
+      <nav id="menu" class="dishes-list">
         <ul>
           <li><a href="#dishes__cakes">торты</a></li>
           <li><a href="#dishes__croissants">круассаны</a></li>
           <li><a href="#dishes__hot_drinks">горячие напитки</a></li>
           <li><a href="#dishes__cold_drinks">холодные напитки</a></li>
+          <li>
+            <button id="dispose">dispose localStorage</button>
+            <script>
+                let disposer = document.querySelector("#dispose");
+                disposer.addEventListener('click', function () {
+                  localStorage.clear();
+                  location.reload();
+                  console.log('disposed');
+                });
+            </script>
+          </li>
           <li><a href="#">пудинги</a></li>
           <li><a href="#">мороженое</a></li>
           <li><a href="#">завтрак</a></li>
@@ -188,7 +198,7 @@
         <h4 id="dishes__cakes">Торты</h4>
         <div class="dishes">
           <div class="dish-card">
-            <h4>Наолеон</h4>
+            <h4>Наполеон</h4>
             <img src="source/cards/cake.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">900 ₽</p>
@@ -216,7 +226,7 @@
             <a class="purchase"></a>
           </div>
           <div class="dish-card">
-            <h4>Наолеон</h4>
+            <h4>Наполеон</h4>
             <img src="source/cards/cake.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">900 ₽</p>
@@ -276,17 +286,35 @@
     </main>
     <footer>
       <script>
-        const select = document.querySelector('select');
-        const footer = document.querySelector('footer');
-        footer.innerText = 'Cамара 2023'
-        select.addEventListener('change', function() {
-          let selectedRest = this.options[this.selectedIndex].text;
-          if (selectedRest != 'выбрать ресторан') {
-            footer.innerText = selectedRest + '  Самара 2023';
-          } else {
-            footer.innerText = 'Самара 2023';
+          const select = document.querySelector('select');
+          const footer = document.querySelector('footer');
+
+          // Function to update footer text and save selectedRest to localStorage
+          function updateFooterText() {
+            let selectedRest = select.options[select.selectedIndex].text;
+            if (selectedRest !== 'выбрать ресторан') {
+              footer.innerText = selectedRest + '  Самара 2023';
+            } else {
+              footer.innerText = 'Самара 2023';
+            }
+            // Save selectedRest to localStorage
+            localStorage.setItem('selectedRest', selectedRest);
           }
-        });
+          // Event listener for select change
+          select.addEventListener('change', updateFooterText);
+          // Check if there's a selectedRest value in localStorage
+          const storedRest = localStorage.getItem('selectedRest');
+          if (storedRest) {
+            // Set the selected option based on the stored value
+            for (let i = 0; i < select.options.length; i++) {
+              if (select.options[i].text === storedRest) {
+                select.selectedIndex = i;
+                console.log('current index = ' + i);
+                break;
+              }
+            }
+          }
+          updateFooterText();
       </script>
     </footer>
     <script>
@@ -310,6 +338,5 @@
         });
       });
     </script>
-
   </body>
 </html>

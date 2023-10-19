@@ -169,6 +169,7 @@ section > h3 {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
   gap: var(--little-margin);
   padding: var(--def-padd);
   background-color: var(--accent2);
@@ -177,7 +178,7 @@ section > h3 {
 }
 
 .dish-card > img {
-  width: 100%;
+  width: 90%;
   border-radius: 10px;
   margin-bottom: var(--def-margin);
 }
@@ -236,6 +237,12 @@ footer {
   text-align: center;
 }
 
+#dispose {
+  padding: 5px;
+  font-size: 1rem;
+  border: solid black 1px;
+}
+
 @media screen and (max-width: 1200rem) {
   #description p {
     padding: 0 20% 0 20%;
@@ -261,7 +268,7 @@ footer {
     display: block;
   }
 
-  .purchase {
+  .purchase, .purchased {
     width: 100%;
   }
 }
@@ -289,6 +296,10 @@ footer {
 }
 
 @media screen and (max-width: 433px) {
+  header {
+    gap: var(--def-margin);
+  }
+
   .carousel-container {
     padding: 0;
   }
