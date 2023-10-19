@@ -176,7 +176,7 @@
           <li><a href="#dishes__cakes">торты</a></li>
           <li><a href="#dishes__croissants">круассаны</a></li>
           <li><a href="#dishes__hot_drinks">горячие напитки</a></li>
-          <li><a href="#">холодные напитки</a></li>
+          <li><a href="#dishes__cold_drinks">холодные напитки</a></li>
           <li><a href="#">пудинги</a></li>
           <li><a href="#">мороженое</a></li>
           <li><a href="#">завтрак</a></li>
@@ -192,35 +192,35 @@
             <img src="source/cards/cake.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">900 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
           <div class="dish-card">
             <h4>Прага</h4>
             <img src="source/cards/praha.jpg" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">700 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
           <div class="dish-card">
             <h4>Чизкейк</h4>
             <img src="source/cards/unsplash_Nl8Oa6ZuNcA.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">649 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
           <div class="dish-card">
             <h4>Шоколадный</h4>
             <img src="source/cards/choco.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">999 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
           <div class="dish-card">
             <h4>Наолеон</h4>
             <img src="source/cards/cake.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta, quod.</p>
             <p class="price">900 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
         </div>
 
@@ -231,7 +231,7 @@
             <img src="source/cards/crois1.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, iste.</p>
             <p class="price">90 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
 
           <div class="dish-card">
@@ -250,7 +250,7 @@
             <img src="source/cards/america.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, iste.</p>
             <p class="price">90 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
           </div>
 
           <div class="dish-card">
@@ -258,21 +258,31 @@
             <img src="source/cards/cofffe2.png" alt="">
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, iste.</p>
             <p class="price">79 ₽</p>
-            <a href="#" class="purchase "></a>
+            <a href="" class="purchase "></a>
+          </div>
+        </div>
+        <h4 id="dishes__cold_drinks">Холодные напитки</h4>
+        <div class="dishes">
+          <div class="dish-card">
+            <h4>Чай</h4>
+            <img src="source/cards/tea.png" alt="">
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, iste.</p>
+            <p class="price">60 ₽</p>
+            <a href="" class="purchase "></a> 
           </div>
         </div>
 
       </section>
 
       <footer>
-        <!-- Самара 2023 -->
         <script>
           const select = document.querySelector('select');
           const footer = document.querySelector('footer');
+          footer.innerText = 'Cамара 2023'
           select.addEventListener('change', function() {
             let selectedRest = this.options[this.selectedIndex].text;
             if (selectedRest != 'выбрать ресторан') {
-              footer.innerText = selectedRest + ' Самара 2023';
+              footer.innerText = selectedRest + '  Самара 2023';
             } else {
               footer.innerText = 'Самара 2023';
             }
@@ -280,5 +290,16 @@
         </script>
       </footer>
     </main>
+    <script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const purchaseElement = document.querySelector('.purchase');
+
+    purchaseElement.addEventListener('click', function () {
+      this.classList.remove('purchase');
+      this.classList.add('purchased'); 
+      console.log('Clicked');
+    });
+  });
+    </script>
   </body>
 </html>

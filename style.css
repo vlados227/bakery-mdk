@@ -38,7 +38,6 @@ header {
   background-color: var(--major);
   padding: 1rem;
   width: 100%;
-  
 }
 
 ul::-webkit-scrollbar {
@@ -204,12 +203,26 @@ section > h3 {
   text-decoration: none;
 }
 
+.purchased {
+  width: 50%;
+  padding: var(--def-padd);
+  border-radius: 12px;
+  color: var(--bgcolour);
+  background-color: green;
+  text-align: center;
+  text-decoration: none;
+}
+
+.purchased::before {
+  content: 'заказано';
+}
+
 .purchase::before {
-  content: 'заказать ';
+  content: "заказать ";
 }
 
 .price {
-  font-family: 'Playfair Display';
+  font-family: "Playfair Display";
   font-size: 1.6rem;
   float: right;
 }
@@ -229,7 +242,7 @@ footer {
   }
 }
 
-@media screen and (max-width:1100px) {
+@media screen and (max-width: 1100px) {
   nav > ul {
     overflow-x: visible;
   }
