@@ -295,6 +295,13 @@ section#job {
   margin-right: var(--little-margin);
 }
 
+#booking {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--def-margin);
+  justify-content: center;
+}
+
 @media screen and (max-width: 1200rem) {
   #description p {
     padding: 0 20% 0 20%;

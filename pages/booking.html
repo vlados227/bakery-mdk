@@ -21,7 +21,7 @@
   <link rel="shortcut icon" href="../source/fxemoji_bread.ico" type="image/x-icon" />
   <title>Croissant | Регистрация</title>
   <style>
-    footer{
+    footer {
       position: absolute;
     }
   </style>
@@ -100,16 +100,15 @@
   </header>
   <main>
 
-    <section id="reg">
-      <h1>Регистрация профиля</h1>
-      <form action="" id="registration">
+    <section id="tables">
+      <h1>Забронировать столик</h1>
+      <form action="" id="booking">
+        <input type="date" name="datetime" id="datetime" placeholder="время">
+        <input type="number" min="1" max="4" name="capacity" id="capacity" placeholder="количество людей">
         <input type="tel" name="tel" id="tel" placeholder="номер телефона">
-        <input type="password" name="password" id="password" placeholder="пароль">
-        <p>
-          <input type="checkbox" name="conf" id="conf">
-          <label for="conf">я согласен с условиями обработки данных</label>
-        </p>
-        <input type="submit" value="регистрация">
+        <div></div>
+        <input type="submit" value="забронировать">
+        <div></div>
       </form>
     </section>
 
