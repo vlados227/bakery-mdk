@@ -243,6 +243,45 @@ footer {
   border: solid black 1px;
 }
 
+#registration {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#registration > input {
+  margin-bottom: var(--def-margin);
+  padding: var(--little-margin);
+  border: solid 2px var(--accent);
+  border-radius: 5px;
+}
+
+[type="submit"] {
+  background-color: var(--extra);
+  color: var(--bgcolour);
+}
+
+#job {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+#job img {
+  margin-bottom: var(--def-margin);
+}
+
+#job ul {
+  text-align: justify;
+  font-size: 1.5rem;
+}
+
+#job ul > li {
+  list-style-type: disc;
+}
+
 @media screen and (max-width: 1200rem) {
   #description p {
     padding: 0 20% 0 20%;

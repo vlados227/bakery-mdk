@@ -67,7 +67,7 @@
           <a href="#">купоны</a>
         </li>
         <li class="nav-item">
-          <a href="#">
+          <a href="pages/reg.html">
             <span class="material-symbols-outlined">account_circle</span>
           </a>
         </li>
@@ -107,19 +107,19 @@
         <div class="offcanvas-body">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a href="#" class="nav-link">меню</a>
+              <a href="#menu" class="nav-link">меню</a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">заказать столик</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">работа</a>
+              <a href="pages/job.html" class="nav-link">работа</a>
             </li>
             <li class="nav-item">
               <a href="#" class="nav-link">купоны</a>
             </li>
             <li class="nav-item">
-              <a href="#" class="nav-link">
+              <a href="pages/reg.html" class="nav-link">
                 <span class="material-symbols-outlined">account_circle</span>
               </a>
             </li>
@@ -289,7 +289,7 @@
           const select = document.querySelector('select');
           const footer = document.querySelector('footer');
 
-          // Function to update footer text and save selectedRest to localStorage
+          // записать селект в футер
           function updateFooterText() {
             let selectedRest = select.options[select.selectedIndex].text;
             if (selectedRest !== 'выбрать ресторан') {
@@ -297,15 +297,12 @@
             } else {
               footer.innerText = 'Самара 2023';
             }
-            // Save selectedRest to localStorage
             localStorage.setItem('selectedRest', selectedRest);
           }
-          // Event listener for select change
           select.addEventListener('change', updateFooterText);
-          // Check if there's a selectedRest value in localStorage
+          // проверка селектедрест в локалстор
           const storedRest = localStorage.getItem('selectedRest');
           if (storedRest) {
-            // Set the selected option based on the stored value
             for (let i = 0; i < select.options.length; i++) {
               if (select.options[i].text === storedRest) {
                 select.selectedIndex = i;
@@ -326,14 +323,12 @@
             const card = this.parentElement;
             const clonedCard = card.cloneNode(true);
 
-            // Store the cloned card in localStorage
             let savedCards = JSON.parse(localStorage.getItem('savedCards')) || [];
             savedCards.push(clonedCard.outerHTML);
             localStorage.setItem('savedCards', JSON.stringify(savedCards));
 
-            // Update the UI to indicate the card has been added to the cart
-            this.classList.remove('purchase');
-            this.classList.add('purchased');
+              this.classList.remove('purchase');
+              this.classList.add('purchased');
             localStorage.setItem(this.classList);
           });
         });
