@@ -262,7 +262,7 @@ input {
   color: var(--bgcolour);
 }
 
-#job {
+section#job {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -277,6 +277,10 @@ input {
   text-align: justify;
   font-size: 1.5rem;
   margin-bottom: var(--semantic-margin);
+}
+
+#job h2, h3, h4, #rabota p, #registration p {
+  text-align: center;
 }
 
 #job ul > li {
