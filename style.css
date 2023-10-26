@@ -243,14 +243,14 @@ footer {
   border: solid black 1px;
 }
 
-#registration {
+#registration, #rabota {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-#registration > input {
+input {
   margin-bottom: var(--def-margin);
   padding: var(--little-margin);
   border: solid 2px var(--accent);
@@ -276,10 +276,19 @@ footer {
 #job ul {
   text-align: justify;
   font-size: 1.5rem;
+  margin-bottom: var(--semantic-margin);
 }
 
 #job ul > li {
   list-style-type: disc;
+}
+
+#job > h3 {
+  margin-top: 0;
+}
+
+#rabota > p > input[type="tel"] {
+  margin-right: var(--little-margin);
 }
 
 @media screen and (max-width: 1200rem) {
