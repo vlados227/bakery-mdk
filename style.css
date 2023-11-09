@@ -28,7 +28,7 @@ body {
 
 header {
   top: 0;
-  /* position: sticky; */
+  position: sticky;
   z-index: 10;
   margin-bottom: var(--semantic-margin);
   display: flex;
@@ -135,7 +135,7 @@ section > h3 {
 }
 
 .dishes-list {
-  /* position: sticky; */
+  position: sticky;
   top: 100px;
   width: 100%;
   padding: var(--def-padd);
