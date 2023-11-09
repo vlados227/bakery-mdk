@@ -150,7 +150,6 @@
     </script>
   </main>
   <footer>
-    <p>тел +8-800-999-444</p>
     <script>
       const select = document.querySelector('select');
       const footer = document.querySelector('footer');
@@ -161,7 +160,7 @@
         if (selectedRest !== 'выбрать ресторан') {
           footer.innerText = selectedRest + '  Самара 2023';
         } else {
-          footer.innerText = 'Самара 2023';
+          footer.innerText = 'Самара 2023' + " тел +8-800-999-444";
         }
         localStorage.setItem('selectedRest', selectedRest);
       }
